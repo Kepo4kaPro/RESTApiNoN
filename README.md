@@ -3,7 +3,7 @@
 ## Запросы
 ### GET Получить список товаров /catalog/<название каталога>
 ```js
-    ANSWER: {
+    RESPONSE: {
       name: Название,
       content: 
           [
@@ -18,7 +18,7 @@
 ```
 ### GET Получить товар /product/<Номер товара>
 ```js
-    ANSWER: {
+    RESPONSE: {
       name: Название,
       description: Описание,
       composition: [
@@ -41,12 +41,37 @@
 ```
 ### GET Получить размерную таблицу каталога /vmodals_sizes/<название каталога>
 ```js
-    ANSWER: {
+    RESPONSE: {
       description: [" Строки описания "],
       sizes:  [ Доступные размеры],
       dimen : [ Доступные метки имерения],
       data :  {
          Размер: [Значения меток]
       }
+  }
+```
+### GET Получить данные аккаунта /account
+```js
+    REQUEST
+    HEADERS: {
+        Authorization: "Bearer token"
+  }
+```
+```js
+    RESPONSE: {
+        account: {
+            login: Логин,
+            phone: Телефон,
+            mail: Почта
+        },
+        delivery: {
+            name: ФИО получателя,
+            uindex: Индекс ПО,
+            edge: Район,
+            county: Город,
+            streets: Улица,
+            house: Дом,
+            apartment: Квартира
+        }
   }
 ```

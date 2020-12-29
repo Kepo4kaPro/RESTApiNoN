@@ -75,3 +75,69 @@
         }
   }
 ```
+### POST Регистрация /register
+```js
+    REQUEST
+    POST: {
+        login: Логин,
+        mailP: Почта или Телефон,
+        pass: Пароль,
+        passC: Пароль подтверждения
+  }
+```
+```js
+    RESPONSE:{
+        422:
+        {
+           error: 
+           {
+              message: "Validation error",
+              errors: ["Массив ошибок"]
+           }
+        },
+        200:
+        {
+           id: "Номер пользовотеля",
+           token: "Bearer token"
+        }
+  }
+```
+### POST Вход /login
+```js
+    REQUEST
+    POST: {
+        login: "Логин, телефон или почта",
+        pass: Пароль,
+  }
+```
+```js
+    RESPONSE:{
+        422:
+        {
+           error: 
+           {
+              message: "Validation error",
+              errors: ["Массив ошибок"]
+           }
+        },
+        400:
+        {
+           error: 
+           {
+              message: "login or password invalid"
+           }
+        },
+        200:
+        {
+           id: "Номер пользовотеля",
+           token: "Bearer token"
+        }
+  }
+```
+### POST Выход /logout
+```js
+    REQUEST
+    HEADERS: {
+        Authorization: "Bearer token"
+  }
+```
